@@ -1,65 +1,153 @@
-import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
+import TestCard, { type ResultPreview } from "@/components/TestCard";
+import ThemeToggle from "@/components/ThemeToggle";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { developerTest } from "@/lib/tests/developer";
+import { coffeeTest } from "@/lib/tests/coffee";
+import { travelTest } from "@/lib/tests/travel";
+import { musicTest } from "@/lib/tests/music";
+import type { Test } from "@/lib/tests/types";
+
+const toPreviews = (test: Test): ResultPreview[] =>
+  Object.values(test.results).map((r) => ({
+    emoji: r.emoji,
+    title: r.title,
+  }));
+
+const tests = [
+  {
+    href: "/tests/developer",
+    emoji: developerTest.emoji,
+    title: developerTest.title,
+    description:
+      "아키텍트부터 협력자까지 — 일하는 스타일로 알아보는 나의 개발자 유형.",
+    questionCount: developerTest.questions.length,
+    duration: "2분",
+    gradient: "from-violet-300 via-fuchsia-200 to-pink-200",
+    previews: toPreviews(developerTest),
+  },
+  {
+    href: "/tests/coffee",
+    emoji: coffeeTest.emoji,
+    title: coffeeTest.title,
+    description:
+      "오늘의 기분과 성격으로 찾아보는, 나에게 꼭 맞는 한 잔의 커피.",
+    questionCount: coffeeTest.questions.length,
+    duration: "2분",
+    gradient: "from-amber-300 via-orange-200 to-rose-200",
+    previews: toPreviews(coffeeTest),
+  },
+  {
+    href: "/tests/travel",
+    emoji: travelTest.emoji,
+    title: travelTest.title,
+    description:
+      "계획형 · 즉흥형 · 힐링형 · 맛집형. 떠나기 전 알아보는 나의 여행 본능.",
+    questionCount: travelTest.questions.length,
+    duration: "2분",
+    gradient: "from-sky-300 via-cyan-200 to-emerald-200",
+    previews: toPreviews(travelTest),
+  },
+  {
+    href: "/tests/music",
+    emoji: musicTest.emoji,
+    title: musicTest.title,
+    description:
+      "발라드 · 댄스 · 인디 · 무드. 8문항으로 알아보는 나의 음악 본능.",
+    questionCount: musicTest.questions.length,
+    duration: "2분",
+    gradient: "from-fuchsia-300 via-purple-200 to-sky-200",
+    previews: toPreviews(musicTest),
+  },
+];
+
+const stats = [
+  { label: "테스트", value: "4" },
+  { label: "결과 유형", value: "16" },
+  { label: "평균 소요", value: "2분" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="relative flex flex-1 flex-col">
+      <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="animate-blob absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-violet-300/40 blur-3xl dark:bg-violet-700/20" />
+        <div
+          className="animate-blob absolute top-32 right-1/4 h-80 w-80 rounded-full bg-rose-300/40 blur-3xl dark:bg-rose-700/20"
+          style={{ animationDelay: "2s" }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div
+          className="animate-blob absolute -bottom-20 left-1/3 h-72 w-72 rounded-full bg-sky-300/40 blur-3xl dark:bg-sky-700/20"
+          style={{ animationDelay: "4s" }}
+        />
+      </div>
+
+      <header className="relative z-10 flex items-center justify-between px-6 pt-6 sm:px-10">
+        <span className="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-slate-900 dark:text-slate-50">
+          <span aria-hidden className="text-base">
+            ✨
+          </span>
+          Three Thousand
+        </span>
+        <ThemeToggle />
+      </header>
+
+      <section className="relative z-10 px-6 pt-16 pb-10 sm:pt-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 text-xs font-semibold text-violet-700 shadow-sm backdrop-blur dark:border-violet-900/60 dark:bg-slate-900/60 dark:text-violet-300">
+            <span aria-hidden>🎈</span>
+            가볍게 즐기는 심리테스트
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl dark:text-slate-50">
+            나를 닮은 한 가지를{" "}
+            <span className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-rose-400">
+              발견해보세요
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-400">
+            8개의 짧은 질문, 단 2분. 오늘의 기분과 성격을 따라
+            <br className="hidden sm:block" />
+            나에게 어울리는 유형을 알려드려요.
           </p>
+
+          <dl className="mx-auto mt-10 flex max-w-md items-center justify-center gap-3 rounded-2xl border border-white/60 bg-white/60 px-4 py-3 shadow-sm backdrop-blur sm:gap-8 dark:border-slate-800 dark:bg-slate-900/50">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={
+                  i > 0
+                    ? "flex flex-1 flex-col items-center border-l border-slate-200/70 dark:border-slate-800"
+                    : "flex flex-1 flex-col items-center"
+                }
+              >
+                <dt className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  {s.label}
+                </dt>
+                <dd className="mt-1 text-base font-extrabold text-slate-900 sm:text-lg dark:text-slate-50">
+                  {s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      <section className="relative z-10 px-6 pb-24">
+        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
+          {tests.map((test, i) => (
+            <TestCard
+              key={test.href}
+              {...test}
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${i * 100}ms` }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
