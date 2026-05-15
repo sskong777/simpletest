@@ -32,19 +32,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "데이터 중심 애플리케이션 설계",
       description: "시스템 설계 바이블, 마틴 클레프만",
-      url: "", // 검색: "데이터 중심 애플리케이션 설계 책"
+      url: "https://link.coupang.com/a/dMl763tai4", // 검색: "데이터 중심 애플리케이션 설계 책"
       emoji: "📘",
     },
     {
       title: "모니터암 가스 스프링",
       description: "책상 정리 + 시야 확보",
-      url: "", // 검색: "모니터암 가스스프링 듀얼"
+      url: "https://link.coupang.com/a/dMl6u5Bgpo", // 검색: "모니터암 가스스프링 듀얼"
       emoji: "🖥️",
     },
     {
       title: "소니 WH-1000XM5 헤드폰",
       description: "긴 사고의 시간을 위한 노캔",
-      url: "", // 검색: "소니 WH-1000XM5"
+      url: "소니 WH-1000XM5 헤드폰", // 검색: "소니 WH-1000XM5"
       emoji: "🎧",
     },
   ],
@@ -53,19 +53,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "키크론 K2 무선 키보드",
       description: "빠른 손에 어울리는 기계식",
-      url: "", // 검색: "키크론 K2 무선"
+      url: "키크론 K2 무선 키보드", // 검색: "키크론 K2 무선"
       emoji: "⌨️",
     },
     {
       title: "Anker USB-C 멀티 허브 7-in-1",
       description: "노트북 한 대로 풀스택",
-      url: "", // 검색: "Anker USB-C 허브 7in1"
+      url: "Anker USB-C 멀티 허브 7-in-1", // 검색: "Anker USB-C 허브 7in1"
       emoji: "🔌",
     },
     {
       title: "로지텍 MX Anywhere 3S",
       description: "어디서든 빠른 작업",
-      url: "", // 검색: "로지텍 MX Anywhere 3S"
+      url: "https://link.coupang.com/a/dMmcm0IxwG", // 검색: "로지텍 MX Anywhere 3S"
       emoji: "🖱️",
     },
   ],
@@ -74,19 +74,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "코딩 인터뷰 완전 분석",
       description: "알고리즘 문제 해결 정석",
-      url: "", // 검색: "코딩 인터뷰 완전 분석"
+      url: "코딩 인터뷰 완전 분석", // 검색: "코딩 인터뷰 완전 분석"
       emoji: "📗",
     },
     {
       title: "BenQ 모니터 라이트 스크린바",
       description: "장시간 디버깅에 눈 보호",
-      url: "", // 검색: "BenQ 스크린바 모니터라이트"
+      url: "https://link.coupang.com/a/dMmehsgh5g", // 검색: "BenQ 스크린바 모니터라이트"
       emoji: "💡",
     },
     {
       title: "미도리 트래블러스 노트",
       description: "사고의 흐름을 잡는 노트",
-      url: "", // 검색: "미도리 트래블러스 노트"
+      url: "미도리 트래블러스 노트", // 검색: "미도리 트래블러스 노트"
       emoji: "📓",
     },
   ],
