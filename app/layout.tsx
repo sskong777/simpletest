@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import {
+  GoogleTagManagerHead,
+  GoogleTagManagerNoScript,
+} from "@/components/GoogleTagManager";
 import KakaoSDK from "@/components/KakaoSDK";
 import "./globals.css";
 
@@ -76,7 +80,9 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans text-slate-900 dark:text-slate-100 bg-gradient-to-br from-rose-50 via-violet-50 to-sky-50 dark:from-slate-950 dark:via-violet-950/40 dark:to-slate-950 transition-colors">
+        <GoogleTagManagerNoScript />
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
+        <GoogleTagManagerHead />
         <GoogleAnalytics />
         <KakaoSDK />
         {children}
