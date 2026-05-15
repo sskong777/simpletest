@@ -5,7 +5,13 @@ type CoupangRecommendProps = {
 };
 
 export default function CoupangRecommend({ items }: CoupangRecommendProps) {
-  if (!items.length) return null;
+  // Only render items whose URL has been replaced with a real Coupang Partners
+  // short link. Curated entries with empty/placeholder URLs are skipped so the
+  // section doesn't appear half-broken while we're still filling in links.
+  const validItems = items.filter((item) =>
+    item.url.startsWith("https://link.coupang.com/"),
+  );
+  if (!validItems.length) return null;
 
   return (
     <section className="mx-auto mt-12 w-full max-w-2xl px-6">
@@ -20,7 +26,7 @@ export default function CoupangRecommend({ items }: CoupangRecommendProps) {
       </header>
 
       <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {items.map((item) => (
+        {validItems.map((item) => (
           <li key={item.url}>
             <a
               href={item.url}
