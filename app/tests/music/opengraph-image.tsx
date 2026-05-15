@@ -39,7 +39,7 @@ export default async function Image() {
           }}
         >
           <span>✨</span>
-          <span>마음 테스트</span>
+          <span>Three Thousand</span>
         </div>
         <div
           style={{

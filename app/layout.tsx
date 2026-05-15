@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   description:
     "나를 알아가는 즐거운 시간. 개발자 유형부터 커피 취향까지, 다양한 심리테스트로 내 성향을 발견해보세요.",
   metadataBase: new URL("https://www.threethousand.site"),
+  alternates: { canonical: "/" },
   keywords: [
     "심리테스트",
     "성격테스트",

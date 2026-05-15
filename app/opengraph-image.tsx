@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { brandGradient, loadOgFonts, ogSize } from "@/lib/og";
 
 export const runtime = "edge";
-export const alt = "마음 테스트 — 나를 닮은 한 가지를 발견해보세요";
+export const alt = "Three Thousand — 나를 닮은 한 가지를 발견해보세요";
 export const size = { width: ogSize.width, height: ogSize.height };
 export const contentType = "image/png";
 
@@ -39,7 +39,7 @@ export default async function Image() {
           }}
         >
           <span>✨</span>
-          <span>가볍게 즐기는 마음 테스트</span>
+          <span>가볍게 즐기는 심리테스트</span>
         </div>
         <div
           style={{
