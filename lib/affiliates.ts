@@ -44,7 +44,7 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "소니 WH-1000XM5 헤드폰",
       description: "긴 사고의 시간을 위한 노캔",
-      url: "소니 WH-1000XM5 헤드폰", // 검색: "소니 WH-1000XM5"
+      url: "https://link.coupang.com/a/dMmGvnALTM", // 검색: "소니 WH-1000XM5"
       emoji: "🎧",
     },
   ],
@@ -53,13 +53,13 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "키크론 K2 무선 키보드",
       description: "빠른 손에 어울리는 기계식",
-      url: "키크론 K2 무선 키보드", // 검색: "키크론 K2 무선"
+      url: "https://link.coupang.com/a/dMmE7UqovY", // 검색: "키크론 K2 무선"
       emoji: "⌨️",
     },
     {
       title: "Anker USB-C 멀티 허브 7-in-1",
       description: "노트북 한 대로 풀스택",
-      url: "Anker USB-C 멀티 허브 7-in-1", // 검색: "Anker USB-C 허브 7in1"
+      url: "https://link.coupang.com/a/dMmCJb2emi", // 검색: "Anker USB-C 허브 7in1"
       emoji: "🔌",
     },
     {
@@ -74,7 +74,7 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "코딩 인터뷰 완전 분석",
       description: "알고리즘 문제 해결 정석",
-      url: "코딩 인터뷰 완전 분석", // 검색: "코딩 인터뷰 완전 분석"
+      url: "https://link.coupang.com/a/dMmBecVFkW", // 검색: "코딩 인터뷰 완전 분석"
       emoji: "📗",
     },
     {
@@ -86,7 +86,7 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "미도리 트래블러스 노트",
       description: "사고의 흐름을 잡는 노트",
-      url: "미도리 트래블러스 노트", // 검색: "미도리 트래블러스 노트"
+      url: "https://link.coupang.com/a/dMmfxmjmXA", // 검색: "미도리 트래블러스 노트"
       emoji: "📓",
     },
   ],
@@ -95,19 +95,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "로지텍 MX Master 3S",
       description: "회의·문서 작업의 동반자",
-      url: "", // 검색: "로지텍 MX Master 3S"
+      url: "https://link.coupang.com/a/dMmzRxVj1U", // 검색: "로지텍 MX Master 3S"
       emoji: "🖱️",
     },
     {
       title: "자석식 미니 화이트보드",
       description: "팀 아이디어 정리에 즉시",
-      url: "", // 검색: "자석식 화이트보드 책상용"
+      url: "https://link.coupang.com/a/dMmIAdewQS", // 검색: "자석식 화이트보드 책상용"
       emoji: "📋",
     },
     {
       title: "라미 사파리 만년필",
       description: "메모를 즐거움으로",
-      url: "", // 검색: "라미 사파리 만년필"
+      url: "https://link.coupang.com/a/dMmJLd7lfM", // 검색: "라미 사파리 만년필"
       emoji: "🖊️",
     },
   ],
