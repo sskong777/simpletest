@@ -3,11 +3,12 @@ import { developerTest } from "@/lib/tests/developer";
 import { coffeeTest } from "@/lib/tests/coffee";
 import { travelTest } from "@/lib/tests/travel";
 import { musicTest } from "@/lib/tests/music";
+import { foodTest } from "@/lib/tests/food";
 
 const SITE = "https://www.threethousand.site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const tests = [developerTest, coffeeTest, travelTest, musicTest];
+  const tests = [developerTest, coffeeTest, travelTest, musicTest, foodTest];
   const now = new Date();
   return [
     {

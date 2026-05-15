@@ -6,6 +6,7 @@ import { developerTest } from "@/lib/tests/developer";
 import { coffeeTest } from "@/lib/tests/coffee";
 import { travelTest } from "@/lib/tests/travel";
 import { musicTest } from "@/lib/tests/music";
+import { foodTest } from "@/lib/tests/food";
 import type { Test } from "@/lib/tests/types";
 
 const toPreviews = (test: Test): ResultPreview[] =>
@@ -59,11 +60,22 @@ const tests = [
     gradient: "from-fuchsia-300 via-purple-200 to-sky-200",
     previews: toPreviews(musicTest),
   },
+  {
+    href: "/tests/food",
+    emoji: foodTest.emoji,
+    title: foodTest.title,
+    description:
+      "미식가 · 위로식가 · 탐험가 · 건강 밸런서. 한 끼로 알아보는 음식 본능.",
+    questionCount: foodTest.questions.length,
+    duration: "2분",
+    gradient: "from-amber-300 via-orange-200 to-red-200",
+    previews: toPreviews(foodTest),
+  },
 ];
 
 const stats = [
-  { label: "테스트", value: "4" },
-  { label: "결과 유형", value: "16" },
+  { label: "테스트", value: "5" },
+  { label: "결과 유형", value: "20" },
   { label: "평균 소요", value: "2분" },
 ];
 
@@ -137,7 +149,7 @@ export default function Home() {
       </section>
 
       <section className="relative z-10 px-6 pb-24">
-        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {tests.map((test, i) => (
             <TestCard
               key={test.href}

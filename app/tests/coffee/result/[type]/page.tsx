@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
+import RelatedTests from "@/components/RelatedTests";
 import ResultCard from "@/components/ResultCard";
 import { breadcrumbJsonLd, resultJsonLd } from "@/lib/jsonld";
 import { siteName, siteUrl } from "@/lib/site";
@@ -68,6 +69,7 @@ export default async function CoffeeResultPage({
         testEmoji={coffeeTest.emoji}
         result={result}
       />
+      <RelatedTests currentTestId={coffeeTest.id} />
     </>
   );
 }

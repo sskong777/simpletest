@@ -49,6 +49,11 @@ export const resultGradients: Record<string, [string, string, string]> = {
   dancer: ["#f0abfc", "#d8b4fe", "#7dd3fc"],
   digger: ["#5eead4", "#6ee7b7", "#bef264"],
   mellow: ["#fcd34d", "#d6d3d1", "#a5b4fc"],
+  // food
+  gourmet: ["#fcd34d", "#fdba74", "#fca5a5"],
+  comfort: ["#fde047", "#fcd34d", "#fdba74"],
+  adventurer: ["#fca5a5", "#f9a8d4", "#f0abfc"],
+  healthy: ["#6ee7b7", "#5eead4", "#67e8f9"],
 };
 
 export const brandGradient: [string, string, string] = [

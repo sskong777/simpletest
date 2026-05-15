@@ -5,12 +5,12 @@ import RelatedTests from "@/components/RelatedTests";
 import ResultCard from "@/components/ResultCard";
 import { breadcrumbJsonLd, resultJsonLd } from "@/lib/jsonld";
 import { siteName, siteUrl } from "@/lib/site";
-import { musicTest } from "@/lib/tests/music";
+import { foodTest } from "@/lib/tests/food";
 
 type Params = { type: string };
 
 export function generateStaticParams(): Params[] {
-  return Object.keys(musicTest.results).map((type) => ({ type }));
+  return Object.keys(foodTest.results).map((type) => ({ type }));
 }
 
 export async function generateMetadata({
@@ -19,10 +19,10 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { type } = await params;
-  const result = musicTest.results[type];
+  const result = foodTest.results[type];
   if (!result) return { title: "결과를 찾을 수 없어요" };
-  const title = `${result.title} · ${musicTest.title}`;
-  const url = `/tests/${musicTest.id}/result/${type}`;
+  const title = `${result.title} · ${foodTest.title}`;
+  const url = `/tests/${foodTest.id}/result/${type}`;
   return {
     title,
     description: result.tagline,
@@ -41,35 +41,35 @@ export async function generateMetadata({
   };
 }
 
-export default async function MusicResultPage({
+export default async function FoodResultPage({
   params,
 }: {
   params: Promise<Params>;
 }) {
   const { type } = await params;
-  const result = musicTest.results[type];
+  const result = foodTest.results[type];
   if (!result) notFound();
-  const testUrl = `${siteUrl}/tests/${musicTest.id}`;
+  const testUrl = `${siteUrl}/tests/${foodTest.id}`;
   const resultUrl = `${testUrl}/result/${type}`;
   return (
     <>
       <JsonLd
         data={[
-          resultJsonLd(musicTest, result),
+          resultJsonLd(foodTest, result),
           breadcrumbJsonLd([
             { name: siteName, url: siteUrl },
-            { name: musicTest.title, url: testUrl },
+            { name: foodTest.title, url: testUrl },
             { name: result.title, url: resultUrl },
           ]),
         ]}
       />
       <ResultCard
-        testId={musicTest.id}
-        testTitle={musicTest.title}
-        testEmoji={musicTest.emoji}
+        testId={foodTest.id}
+        testTitle={foodTest.title}
+        testEmoji={foodTest.emoji}
         result={result}
       />
-      <RelatedTests currentTestId={musicTest.id} />
+      <RelatedTests currentTestId={foodTest.id} />
     </>
   );
 }
