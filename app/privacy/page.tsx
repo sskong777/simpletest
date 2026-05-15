@@ -42,10 +42,21 @@ const sections: { title: string; body: React.ReactNode }[] = [
         <p>본 사이트는 다음의 제3자 서비스를 사용합니다:</p>
         <ul className="mt-3 list-disc space-y-1 pl-6">
           <li>
-            <strong>Google Analytics</strong>: 웹사이트 방문 통계 분석
+            <strong>Google Tag Manager / Google Analytics</strong>: 웹사이트
+            방문 통계 분석
           </li>
           <li>
             <strong>Google AdSense</strong>: 광고 게재 (예정)
+          </li>
+          <li>
+            <strong>Vercel Analytics / Speed Insights</strong>: 페이지 성능
+            측정
+          </li>
+          <li>
+            <strong>쿠팡 파트너스</strong>: 결과 페이지의 상품 추천 링크.
+            본 사이트는 쿠팡 파트너스 활동의 일환으로 일정액의 수수료를
+            제공받습니다. 사용자가 추천 링크를 통해 상품을 구매해도 별도의
+            추가 비용은 발생하지 않습니다.
           </li>
         </ul>
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">

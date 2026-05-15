@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CoupangRecommend from "@/components/CoupangRecommend";
 import JsonLd from "@/components/JsonLd";
 import RelatedTests from "@/components/RelatedTests";
 import ResultCard from "@/components/ResultCard";
+import { getRecommendations } from "@/lib/affiliates";
 import { breadcrumbJsonLd, resultJsonLd } from "@/lib/jsonld";
 import { siteName, siteUrl } from "@/lib/site";
 import { developerTest } from "@/lib/tests/developer";
@@ -69,6 +71,7 @@ export default async function DeveloperResultPage({
         testEmoji={developerTest.emoji}
         result={result}
       />
+      <CoupangRecommend items={getRecommendations(developerTest.id, type)} />
       <RelatedTests currentTestId={developerTest.id} />
     </>
   );
