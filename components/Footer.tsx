@@ -8,25 +8,25 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/60 bg-white/40 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/40">
+    <footer className="mt-auto border-t-[3px] border-ink bg-card">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-8 text-sm sm:flex-row sm:justify-between sm:gap-6">
-        <p className="inline-flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100">
-          <span aria-hidden>✨</span>
-          Three Thousand
+        <p className="inline-flex items-center gap-2 text-base font-black tracking-tight text-ink">
+          <span aria-hidden>★</span>
+          THREE THOUSAND
         </p>
-        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-slate-600 dark:text-slate-300">
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-ink">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="rounded-md px-1 font-medium transition-colors hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:hover:text-violet-300 dark:focus-visible:ring-offset-slate-950"
+              className="border-b-2 border-transparent px-1 text-xs font-black uppercase tracking-wider transition-colors hover:border-ink focus:outline-none focus-visible:border-ink"
             >
               {l.label}
             </Link>
           ))}
         </nav>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
-          © 2024 Three Thousand. All rights reserved.
+        <p className="text-[11px] font-bold uppercase tracking-wider text-ink-muted">
+          © 2024 Three Thousand
         </p>
       </div>
     </footer>

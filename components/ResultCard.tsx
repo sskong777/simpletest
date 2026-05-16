@@ -1,7 +1,6 @@
 import Link from "next/link";
 import ShareButtons from "./ShareButtons";
 import ThemeToggle from "./ThemeToggle";
-import { cn } from "@/lib/utils";
 import type { Result } from "@/lib/tests/types";
 
 type ResultCardProps = {
@@ -11,60 +10,89 @@ type ResultCardProps = {
   result: Result;
 };
 
+// 결과 타입별 브루탈리스트 액센트 (rotate through vivid palette)
+const RESULT_TINTS: Record<string, string> = {
+  // developer
+  architect: "#4ECDC4",
+  builder: "#FFE66D",
+  researcher: "#4ECDC4",
+  collaborator: "#FF6B6B",
+  // coffee
+  americano: "#FFE66D",
+  latte: "#FF6B6B",
+  espresso: "#FF6B6B",
+  coldbrew: "#4ECDC4",
+  // travel
+  planner: "#4ECDC4",
+  spontaneous: "#FF6B6B",
+  relaxer: "#FFE66D",
+  foodie: "#FF6B6B",
+  // music
+  balladeer: "#FF6B6B",
+  dancer: "#FFE66D",
+  digger: "#4ECDC4",
+  mellow: "#FFE66D",
+  // food
+  gourmet: "#FF6B6B",
+  comfort: "#FFE66D",
+  adventurer: "#FF6B6B",
+  healthy: "#4ECDC4",
+};
+
 export default function ResultCard({
   testId,
   testTitle,
   testEmoji,
   result,
 }: ResultCardProps) {
+  const tint = RESULT_TINTS[result.type] ?? "#FFE66D";
+
   return (
     <div className="mx-auto w-full max-w-2xl px-6 py-8 sm:py-14">
       <div className="mb-6 flex items-center justify-between gap-3">
         <Link
           href="/"
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm font-medium text-slate-500 transition-colors hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:text-slate-400 dark:hover:text-violet-300 dark:focus-visible:ring-offset-slate-950"
+          className="inline-flex items-center gap-1 border-[2px] border-ink bg-card px-3 py-1.5 text-xs font-black uppercase tracking-wider text-ink shadow-[3px_3px_0_0_var(--ink)] transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:shadow-[5px_5px_0_0_var(--ink)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:shadow-[5px_5px_0_0_var(--ink)]"
         >
-          <span aria-hidden>←</span> 처음으로
+          ← 처음으로
         </Link>
         <ThemeToggle />
       </div>
 
-      <div className="animate-fade-in-up overflow-hidden rounded-3xl border border-white/60 bg-white/85 shadow-xl shadow-violet-200/40 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-violet-950/40">
+      <div className="animate-fade-in-up border-[3px] border-ink bg-card brutal-shadow-xl">
         <div
-          className={cn(
-            "relative flex flex-col items-center px-6 pt-12 pb-9 text-center bg-gradient-to-br",
-            result.gradient,
-          )}
+          className="relative flex flex-col items-center px-6 pt-12 pb-9 text-center border-b-[3px] border-ink"
+          style={{ backgroundColor: tint }}
         >
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700 backdrop-blur dark:bg-slate-900/50 dark:text-slate-100">
+          <span className="inline-flex items-center gap-1 border-[2px] border-ink bg-card px-3 py-1 text-[10px] font-black uppercase tracking-wider text-ink">
             <span aria-hidden>{testEmoji}</span>
             {testTitle}
           </span>
-          <div className="animate-float mt-7 flex h-28 w-28 items-center justify-center rounded-3xl bg-white text-6xl shadow-lg ring-1 ring-white/60 dark:bg-slate-900 dark:ring-slate-700">
+          <div className="mt-7 flex h-28 w-28 items-center justify-center border-[3px] border-ink bg-card text-6xl shadow-[4px_4px_0_0_var(--ink)]">
             {result.emoji}
           </div>
-          <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          <h1 className="mt-6 text-3xl font-black leading-tight tracking-tight text-ink sm:text-4xl">
             {result.title}
           </h1>
-          <p className="mt-2 text-base font-medium text-slate-800 sm:text-lg">
+          <p className="mt-2 text-base font-bold text-ink sm:text-lg">
             {result.tagline}
           </p>
         </div>
 
         <div className="px-6 pb-9 pt-7 sm:px-10">
-          <p className="text-base leading-7 text-slate-700 sm:text-lg sm:leading-8 dark:text-slate-200">
+          <p className="text-base font-medium leading-7 text-ink sm:text-lg sm:leading-8">
             {result.description}
           </p>
 
           <div className="mt-7">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-ink-muted">
               나의 키워드
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {result.traits.map((trait) => (
                 <span
                   key={trait}
-                  className="rounded-full bg-gradient-to-r from-violet-100 to-rose-100 px-3 py-1 text-sm font-medium text-violet-800 dark:from-violet-950/60 dark:to-rose-950/60 dark:text-violet-200"
+                  className="border-[2px] border-ink bg-card px-3 py-1 text-sm font-bold text-ink"
                 >
                   #{trait}
                 </span>
@@ -72,21 +100,21 @@ export default function ResultCard({
             </div>
           </div>
 
-          <div className="mt-6 rounded-2xl border border-violet-200/70 bg-gradient-to-br from-violet-50 to-rose-50 px-5 py-4 dark:border-violet-900/40 dark:from-violet-950/40 dark:to-rose-950/40">
-            <p className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-violet-700 dark:text-violet-300">
+          <div className="mt-6 border-[3px] border-ink bg-brand-accent p-5">
+            <p className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-ink">
               <span aria-hidden>💡</span>
               당신에게 추천
             </p>
-            <p className="mt-1.5 text-sm leading-6 font-medium text-slate-800 dark:text-slate-100">
+            <p className="mt-1.5 text-sm font-bold leading-6 text-ink">
               {result.recommendation}
             </p>
           </div>
 
-          <div className="mt-4 rounded-2xl bg-slate-50 px-5 py-4 dark:bg-slate-800/60">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <div className="mt-4 border-[3px] border-ink bg-card p-5">
+            <p className="text-[10px] font-black uppercase tracking-widest text-ink-muted">
               잘 맞는 유형
             </p>
-            <p className="mt-1 text-sm font-medium text-slate-800 dark:text-slate-100">
+            <p className="mt-1 text-sm font-bold text-ink">
               {result.matches.join(" · ")}
             </p>
           </div>
@@ -94,7 +122,7 @@ export default function ResultCard({
       </div>
 
       <div className="mt-8">
-        <h3 className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <h3 className="text-center text-[10px] font-black uppercase tracking-widest text-ink-muted">
           결과 공유하기
         </h3>
         <div className="mt-3">
@@ -110,13 +138,13 @@ export default function ResultCard({
       <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
         <Link
           href={`/tests/${testId}`}
-          className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 sm:w-auto dark:bg-violet-600 dark:hover:bg-violet-500 dark:focus-visible:ring-offset-slate-950"
+          className="inline-flex w-full items-center justify-center gap-1.5 border-[3px] border-ink bg-brand-primary px-5 py-3 text-sm font-black uppercase tracking-wider text-white brutal-shadow-lg transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-xl focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-xl sm:w-auto"
         >
-          <span aria-hidden>🔄</span> 다시 하기
+          🔄 다시 하기
         </Link>
         <Link
           href="/"
-          className="inline-flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 sm:w-auto dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-violet-500 dark:focus-visible:ring-offset-slate-950"
+          className="inline-flex w-full items-center justify-center border-[3px] border-ink bg-card px-5 py-3 text-sm font-black uppercase tracking-wider text-ink brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-lg sm:w-auto"
         >
           다른 테스트 보기
         </Link>

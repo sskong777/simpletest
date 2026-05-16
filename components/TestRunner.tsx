@@ -63,12 +63,12 @@ export default function TestRunner({ test }: TestRunnerProps) {
       <div className="mb-6 flex items-center justify-between gap-3">
         <Link
           href="/"
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm font-medium text-slate-500 transition-colors hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:text-slate-400 dark:hover:text-violet-300 dark:focus-visible:ring-offset-slate-950"
+          className="inline-flex items-center gap-1 border-[2px] border-ink bg-card px-3 py-1.5 text-xs font-black uppercase tracking-wider text-ink shadow-[3px_3px_0_0_var(--ink)] transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:shadow-[5px_5px_0_0_var(--ink)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:shadow-[5px_5px_0_0_var(--ink)]"
         >
-          <span aria-hidden>←</span> 처음으로
+          ← 처음으로
         </Link>
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 text-xs font-semibold text-slate-700 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-200">
+          <span className="inline-flex items-center gap-1.5 border-[2px] border-ink bg-brand-accent px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-ink">
             <span aria-hidden>{test.emoji}</span>
             <span className="hidden sm:inline">{test.title}</span>
           </span>
@@ -103,10 +103,10 @@ export default function TestRunner({ test }: TestRunnerProps) {
               key="loading"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-white/60 bg-white/80 py-20 text-center shadow-xl backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/70"
+              className="flex flex-col items-center justify-center gap-3 border-[3px] border-ink bg-card py-20 text-center brutal-shadow-lg"
             >
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-violet-200 border-t-violet-600 dark:border-violet-900 dark:border-t-violet-300" />
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
+              <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-ink border-t-brand-primary" />
+              <p className="text-sm font-black uppercase tracking-wider text-ink">
                 결과를 정리하고 있어요…
               </p>
             </motion.div>
@@ -122,19 +122,18 @@ export default function TestRunner({ test }: TestRunnerProps) {
             <button
               type="button"
               onClick={handlePrev}
-              className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:border-violet-300 hover:text-violet-700 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:border-violet-500 dark:hover:text-violet-200 dark:focus-visible:ring-offset-slate-950"
+              className="inline-flex items-center gap-1 border-[3px] border-ink bg-card px-4 py-2 text-sm font-black uppercase tracking-wider text-ink brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-lg"
             >
-              <span aria-hidden>←</span> 이전
+              ← 이전
             </button>
           )}
           <button
             type="button"
             onClick={handleNext}
             disabled={!canAdvance}
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-md dark:from-violet-500 dark:to-fuchsia-500 dark:focus-visible:ring-offset-slate-950"
+            className="inline-flex items-center gap-1.5 border-[3px] border-ink bg-brand-primary px-6 py-2.5 text-sm font-black uppercase tracking-wider text-white brutal-shadow-lg transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-xl focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-xl disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:translate-x-0 disabled:hover:brutal-shadow-lg"
           >
-            {isLast ? "결과 보기 🎉" : "다음"}
-            {!isLast && <span aria-hidden>→</span>}
+            {isLast ? "결과 보기 🎉" : "다음 →"}
           </button>
         </div>
       )}

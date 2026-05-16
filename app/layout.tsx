@@ -21,8 +21,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafaff" },
-    { media: "(prefers-color-scheme: dark)", color: "#07060d" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f7f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e0e10" },
   ],
 };
 
@@ -82,7 +82,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-slate-900 dark:text-slate-100 bg-gradient-to-br from-rose-50 via-violet-50 to-sky-50 dark:from-slate-950 dark:via-violet-950/40 dark:to-slate-950 transition-colors">
+      <body className="min-h-full flex flex-col font-sans bg-paper text-ink transition-colors">
         <GoogleTagManagerNoScript />
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
         <GoogleTagManagerHead />

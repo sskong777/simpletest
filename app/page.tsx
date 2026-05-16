@@ -15,6 +15,11 @@ const toPreviews = (test: Test): ResultPreview[] =>
     title: r.title,
   }));
 
+const TINT_PRIMARY = "#FF6B6B";
+const TINT_SECONDARY = "#4ECDC4";
+const TINT_ACCENT = "#FFE66D";
+const ROTATE_TINTS = [TINT_PRIMARY, TINT_SECONDARY, TINT_ACCENT];
+
 const tests = [
   {
     href: "/tests/developer",
@@ -24,7 +29,6 @@ const tests = [
       "아키텍트부터 협력자까지 — 일하는 스타일로 알아보는 나의 개발자 유형.",
     questionCount: developerTest.questions.length,
     duration: "2분",
-    gradient: "from-violet-300 via-fuchsia-200 to-pink-200",
     previews: toPreviews(developerTest),
   },
   {
@@ -35,7 +39,6 @@ const tests = [
       "오늘의 기분과 성격으로 찾아보는, 나에게 꼭 맞는 한 잔의 커피.",
     questionCount: coffeeTest.questions.length,
     duration: "2분",
-    gradient: "from-amber-300 via-orange-200 to-rose-200",
     previews: toPreviews(coffeeTest),
   },
   {
@@ -46,7 +49,6 @@ const tests = [
       "계획형 · 즉흥형 · 힐링형 · 맛집형. 떠나기 전 알아보는 나의 여행 본능.",
     questionCount: travelTest.questions.length,
     duration: "2분",
-    gradient: "from-sky-300 via-cyan-200 to-emerald-200",
     previews: toPreviews(travelTest),
   },
   {
@@ -57,7 +59,6 @@ const tests = [
       "발라드 · 댄스 · 인디 · 무드. 8문항으로 알아보는 나의 음악 본능.",
     questionCount: musicTest.questions.length,
     duration: "2분",
-    gradient: "from-fuchsia-300 via-purple-200 to-sky-200",
     previews: toPreviews(musicTest),
   },
   {
@@ -68,7 +69,6 @@ const tests = [
       "미식가 · 위로식가 · 탐험가 · 건강 밸런서. 한 끼로 알아보는 음식 본능.",
     questionCount: foodTest.questions.length,
     duration: "2분",
-    gradient: "from-amber-300 via-orange-200 to-red-200",
     previews: toPreviews(foodTest),
   },
 ];
@@ -83,79 +83,63 @@ export default function Home() {
   return (
     <main className="relative flex flex-1 flex-col">
       <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <div className="animate-blob absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-violet-300/40 blur-3xl dark:bg-violet-700/20" />
-        <div
-          className="animate-blob absolute top-32 right-1/4 h-80 w-80 rounded-full bg-rose-300/40 blur-3xl dark:bg-rose-700/20"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="animate-blob absolute -bottom-20 left-1/3 h-72 w-72 rounded-full bg-sky-300/40 blur-3xl dark:bg-sky-700/20"
-          style={{ animationDelay: "4s" }}
-        />
-      </div>
 
-      <header className="relative z-10 flex items-center justify-between px-6 pt-6 sm:px-10">
-        <span className="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-slate-900 dark:text-slate-50">
-          <span aria-hidden className="text-base">
-            ✨
-          </span>
-          Three Thousand
+      {/* Header */}
+      <header className="flex items-center justify-between border-b-[3px] border-ink px-6 py-4 sm:px-10">
+        <span className="text-xl font-black tracking-tight sm:text-2xl">
+          ★ THREE THOUSAND
         </span>
         <ThemeToggle />
       </header>
 
-      <section className="relative z-10 px-6 pt-16 pb-10 sm:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 text-xs font-semibold text-violet-700 shadow-sm backdrop-blur dark:border-violet-900/60 dark:bg-slate-900/60 dark:text-violet-300">
-            <span aria-hidden>🎈</span>
-            가볍게 즐기는 심리테스트
+      {/* Hero */}
+      <section className="relative px-6 py-16 text-center sm:py-24">
+        <span
+          className="inline-block border-[3px] border-ink px-4 py-1.5 text-xs font-black uppercase tracking-widest text-ink brutal-shadow"
+          style={{ backgroundColor: TINT_ACCENT }}
+        >
+          ★ 가볍게 즐기는 심리테스트
+        </span>
+        <h1 className="mx-auto mt-8 max-w-3xl text-5xl font-black leading-[0.95] tracking-tight sm:text-7xl">
+          나를 닮은 한 가지를
+          <br />
+          <span className="relative inline-block">
+            <span
+              aria-hidden
+              className="absolute -inset-x-2 -inset-y-1 -z-10 -rotate-1"
+              style={{ backgroundColor: TINT_ACCENT }}
+            />
+            <span className="relative">발견해보세요</span>
           </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl dark:text-slate-50">
-            나를 닮은 한 가지를{" "}
-            <span className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-rose-400">
-              발견해보세요
-            </span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-400">
-            8개의 짧은 질문, 단 2분. 오늘의 기분과 성격을 따라
-            <br className="hidden sm:block" />
-            나에게 어울리는 유형을 알려드려요.
-          </p>
+        </h1>
+        <p className="mx-auto mt-7 max-w-xl text-base font-bold text-ink sm:text-lg">
+          8개의 짧은 질문, 단 2분.
+          <br className="hidden sm:inline" />
+          오늘의 기분과 성격을 따라 어울리는 유형을 알려드려요.
+        </p>
 
-          <dl className="mx-auto mt-10 flex max-w-md items-center justify-center gap-3 rounded-2xl border border-white/60 bg-white/60 px-4 py-3 shadow-sm backdrop-blur sm:gap-8 dark:border-slate-800 dark:bg-slate-900/50">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={
-                  i > 0
-                    ? "flex flex-1 flex-col items-center border-l border-slate-200/70 dark:border-slate-800"
-                    : "flex flex-1 flex-col items-center"
-                }
-              >
-                <dt className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  {s.label}
-                </dt>
-                <dd className="mt-1 text-base font-extrabold text-slate-900 sm:text-lg dark:text-slate-50">
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <dl className="mx-auto mt-10 inline-flex items-center gap-5 border-[3px] border-ink bg-card px-6 py-3 brutal-shadow-lg sm:gap-10">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col items-center">
+              <dt className="text-[10px] font-black uppercase tracking-widest text-ink-muted">
+                {s.label}
+              </dt>
+              <dd className="text-lg font-black text-ink">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
-      <section className="relative z-10 px-6 pb-24">
+      {/* Cards */}
+      <section className="px-6 pb-24">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {tests.map((test, i) => (
             <TestCard
               key={test.href}
               {...test}
+              tint={ROTATE_TINTS[i % ROTATE_TINTS.length]}
               className="animate-fade-in-up"
-              style={{ animationDelay: `${i * 100}ms` }}
+              style={{ animationDelay: `${i * 80}ms` }}
             />
           ))}
         </div>

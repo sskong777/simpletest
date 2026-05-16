@@ -42,7 +42,7 @@ export default function ThemeToggle() {
       onClick={() => setIsDark((v) => !v)}
       aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
       aria-pressed={mounted ? isDark : undefined}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-base shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900/70 dark:focus-visible:ring-offset-slate-950"
+      className="inline-flex h-10 w-10 items-center justify-center border-[3px] border-ink bg-card text-base text-ink brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-lg"
     >
       <span aria-hidden suppressHydrationWarning>
         {mounted ? (isDark ? "☀️" : "🌙") : "🌙"}

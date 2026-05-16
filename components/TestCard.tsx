@@ -13,11 +13,14 @@ export type TestCardProps = {
   description: string;
   questionCount: number;
   duration: string;
-  gradient: string;
+  /** Tint color (hex). Used for emoji tile + accent. */
+  tint?: string;
   previews: ResultPreview[];
   className?: string;
   style?: React.CSSProperties;
 };
+
+const TINTS = ["#FF6B6B", "#4ECDC4", "#FFE66D"];
 
 export default function TestCard({
   href,
@@ -26,70 +29,59 @@ export default function TestCard({
   description,
   questionCount,
   duration,
-  gradient,
+  tint,
   previews,
   className,
   style,
 }: TestCardProps) {
+  const fill = tint ?? TINTS[0];
   return (
     <Link
       href={href}
       style={style}
       aria-label={`${title} 테스트 시작하기`}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-3xl border border-white/60 bg-white/75 p-6 shadow-sm backdrop-blur-sm transition-all duration-300",
-        "hover:-translate-y-1 hover:shadow-2xl hover:shadow-violet-200/40",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2",
-        "dark:border-slate-800 dark:bg-slate-900/60 dark:shadow-violet-950/30 dark:hover:shadow-violet-900/40 dark:focus-visible:ring-offset-slate-950",
+        "group block border-[3px] border-ink bg-card p-6 text-ink brutal-shadow-lg",
+        "transition-all duration-200 hover:-translate-y-1 hover:translate-x-[2px] hover:brutal-shadow-xl",
+        "focus:outline-none focus-visible:translate-x-[2px] focus-visible:-translate-y-1 focus-visible:brutal-shadow-xl",
         className,
       )}
     >
-      <div
-        aria-hidden
-        className={cn(
-          "absolute -top-12 -right-12 h-44 w-44 rounded-full bg-gradient-to-br opacity-70 blur-2xl transition-all duration-500 group-hover:opacity-90 group-hover:scale-110",
-          gradient,
-        )}
-      />
-
-      <div className="relative flex items-start justify-between">
+      <div className="flex items-start justify-between">
         <div
-          className={cn(
-            "flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-4xl shadow-md ring-1 ring-slate-100 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105 dark:bg-slate-800 dark:ring-slate-700",
-          )}
+          className="flex h-20 w-20 items-center justify-center border-[3px] border-ink text-4xl shadow-[4px_4px_0_0_var(--ink)] transition-transform duration-200 group-hover:rotate-[-6deg]"
+          style={{ backgroundColor: fill }}
         >
           {emoji}
         </div>
-        <span className="rounded-full bg-white/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-violet-700 ring-1 ring-violet-100 dark:bg-slate-800 dark:text-violet-300 dark:ring-violet-900/50">
+        <span className="border-[2px] border-ink bg-brand-primary px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-white">
           NEW
         </span>
       </div>
 
-      <h3 className="relative mt-6 text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+      <h3 className="mt-6 text-xl font-black leading-tight tracking-tight text-ink">
         {title}
       </h3>
-      <p className="relative mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-        {description}
-      </p>
+      <p className="mt-2 text-sm font-medium text-ink-muted">{description}</p>
 
-      <div className="relative mt-5 flex items-center gap-2 text-xs font-medium">
-        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-          질문 {questionCount}개
+      <div className="mt-5 flex items-center gap-2 text-[10px] font-black uppercase tracking-wider">
+        <span className="border-[2px] border-ink bg-card px-2 py-1 text-ink">
+          질문 {questionCount}
         </span>
-        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+        <span className="border-[2px] border-ink bg-card px-2 py-1 text-ink">
           약 {duration}
         </span>
       </div>
 
-      <div className="relative mt-5 border-t border-slate-200/70 pt-4 dark:border-slate-800">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+      <div className="mt-5 border-t-[3px] border-ink pt-4">
+        <p className="text-[10px] font-black uppercase tracking-wider text-ink-muted">
           가능한 유형
         </p>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {previews.map((p) => (
             <span
               key={p.title}
-              className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-violet-50 to-rose-50 px-2.5 py-1 text-[11px] font-medium text-slate-700 ring-1 ring-violet-100/60 transition-transform group-hover:scale-105 dark:from-violet-950/60 dark:to-rose-950/60 dark:text-slate-200 dark:ring-violet-900/40"
+              className="inline-flex items-center gap-1 border-[2px] border-ink bg-card px-2 py-0.5 text-[11px] font-bold text-ink"
             >
               <span aria-hidden>{p.emoji}</span>
               {p.title}
@@ -98,9 +90,16 @@ export default function TestCard({
         </div>
       </div>
 
-      <div className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-violet-700 transition-transform duration-300 group-hover:translate-x-1 dark:text-violet-300">
-        시작하기
-        <span aria-hidden>→</span>
+      <div className="mt-5 flex items-center justify-between">
+        <span className="text-base">
+          {previews
+            .slice(0, 4)
+            .map((p) => p.emoji)
+            .join(" ")}
+        </span>
+        <span className="inline-flex items-center gap-1 border-[2px] border-ink bg-brand-accent px-3 py-1 text-xs font-black uppercase tracking-wider text-ink transition-transform group-hover:translate-x-1">
+          시작 →
+        </span>
       </div>
     </Link>
   );

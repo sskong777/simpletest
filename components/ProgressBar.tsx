@@ -7,16 +7,16 @@ export default function ProgressBar({ current, total }: ProgressBarProps) {
   const pct = Math.min(100, Math.max(0, (current / total) * 100));
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between text-xs font-medium text-slate-500 dark:text-slate-400">
+      <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-ink-muted">
         <span>
-          질문 <span className="text-slate-900 dark:text-slate-100">{current}</span> /{" "}
-          {total}
+          질문{" "}
+          <span className="text-ink">{current}</span> / {total}
         </span>
         <span>{Math.round(pct)}%</span>
       </div>
-      <div className="relative mt-2 h-2 w-full overflow-hidden rounded-full bg-white/70 ring-1 ring-slate-200/70 dark:bg-slate-800/60 dark:ring-slate-700/70">
+      <div className="relative mt-2 h-3 w-full border-[3px] border-ink bg-card">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 transition-[width] duration-500 ease-out"
+          className="h-full bg-brand-primary transition-[width] duration-300 ease-out"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -29,8 +29,8 @@ export default function ProgressBar({ current, total }: ProgressBarProps) {
               aria-hidden
               className={
                 reached
-                  ? "h-1.5 w-1.5 rounded-full bg-gradient-to-r from-violet-500 to-rose-500 shadow-sm transition-all"
-                  : "h-1.5 w-1.5 rounded-full bg-slate-200 transition-all dark:bg-slate-700"
+                  ? "h-2 w-2 border-2 border-ink bg-brand-accent"
+                  : "h-2 w-2 border-2 border-ink bg-card"
               }
             />
           );

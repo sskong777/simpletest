@@ -53,7 +53,6 @@ export default function ShareButtons({
     const origin = typeof window !== "undefined" ? window.location.origin : "";
     const imageUrl = `${origin}/tests/${testId}/result/${resultType}/opengraph-image`;
 
-    // 1) Kakao SDK (official share dialog)
     const fired = shareToKakao({
       objectType: "feed",
       content: {
@@ -63,19 +62,12 @@ export default function ShareButtons({
         link: { mobileWebUrl: url, webUrl: url },
       },
       buttons: [
-        {
-          title: "결과 보러 가기",
-          link: { mobileWebUrl: url, webUrl: url },
-        },
-        {
-          title: "나도 해보기",
-          link: { mobileWebUrl: origin, webUrl: origin },
-        },
+        { title: "결과 보러 가기", link: { mobileWebUrl: url, webUrl: url } },
+        { title: "나도 해보기", link: { mobileWebUrl: origin, webUrl: origin } },
       ],
     });
     if (fired) return;
 
-    // 2) Web Share API (mobile native sheet)
     if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({ title: resultTitle, text: shareText, url });
@@ -85,7 +77,6 @@ export default function ShareButtons({
       }
     }
 
-    // 3) Clipboard fallback
     try {
       await navigator.clipboard.writeText(`${shareText}\n${url}`);
       showToast("메시지를 복사했어요. 카톡에 붙여넣어 주세요!");
@@ -94,21 +85,24 @@ export default function ShareButtons({
     }
   };
 
+  const baseBtn =
+    "inline-flex items-center gap-2 border-[3px] border-ink px-4 py-2.5 text-xs font-black uppercase tracking-wider brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-lg";
+
   return (
     <div className="relative flex flex-col items-center gap-3">
       <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
         <button
           type="button"
           onClick={handleKakao}
-          className="inline-flex items-center gap-2 rounded-xl bg-yellow-300 px-4 py-2.5 text-sm font-semibold text-yellow-950 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-yellow-200 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
+          className={`${baseBtn} bg-[#FEE500] text-[#3C1E1E]`}
         >
           <span aria-hidden>💬</span>
-          카카오톡 공유
+          카카오톡
         </button>
         <button
           type="button"
           onClick={handleTwitter}
-          className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
+          className={`${baseBtn} bg-brand-secondary text-ink`}
         >
           <span aria-hidden>🐦</span>
           트위터
@@ -116,7 +110,7 @@ export default function ShareButtons({
         <button
           type="button"
           onClick={handleCopy}
-          className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-violet-500 dark:focus-visible:ring-offset-slate-950"
+          className={`${baseBtn} bg-card text-ink`}
         >
           <span aria-hidden>🔗</span>
           링크 복사
@@ -125,7 +119,7 @@ export default function ShareButtons({
 
       <div
         aria-live="polite"
-        className="pointer-events-none h-6 text-center text-xs font-medium text-slate-600 dark:text-slate-300"
+        className="pointer-events-none h-7 text-center text-[11px] font-black uppercase tracking-wider text-ink"
       >
         <AnimatePresence>
           {toast && (
@@ -135,9 +129,9 @@ export default function ShareButtons({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.2 }}
-              className="inline-flex items-center gap-1 rounded-full bg-slate-900 px-3 py-1 text-white shadow-md dark:bg-slate-700"
+              className="inline-flex items-center gap-1 border-[2px] border-ink bg-brand-accent px-3 py-1 text-ink"
             >
-              <span aria-hidden>✅</span>
+              <span aria-hidden>✓</span>
               {toast}
             </motion.span>
           )}
