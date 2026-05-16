@@ -59,7 +59,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
             추가 비용은 발생하지 않습니다.
           </li>
         </ul>
-        <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
+        <p className="mt-3 text-sm text-ink-muted">
           각 서비스는 독자적인 개인정보처리방침을 따릅니다.
         </p>
       </>
@@ -95,7 +95,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
         개인정보 관련 문의사항:{" "}
         <a
           href="mailto:privacy@threethousand.site"
-          className="font-semibold text-violet-700 underline-offset-2 hover:underline dark:text-violet-300"
+          className="font-black text-ink underline decoration-[3px] underline-offset-4 hover:bg-brand-accent"
         >
           privacy@threethousand.site
         </a>
@@ -108,21 +108,27 @@ export default function PrivacyPage() {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-12 sm:py-16">
       <header className="mb-10 text-center">
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+        <span className="inline-flex items-center gap-2 border-[3px] border-ink bg-brand-accent px-4 py-1.5 text-xs font-black uppercase tracking-widest text-ink brutal-shadow">
+          ★ PRIVACY POLICY
+        </span>
+        <h1 className="mt-6 text-3xl font-black tracking-tight text-ink sm:text-4xl">
           개인정보처리방침
         </h1>
-        <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+        <p className="mt-3 text-[11px] font-bold uppercase tracking-widest text-ink-muted">
           최종 수정일: 2024년 5월 14일
         </p>
       </header>
 
-      <div className="space-y-8 rounded-3xl border border-white/60 bg-white/80 p-8 shadow-sm backdrop-blur-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/60">
+      <div className="space-y-6 border-[3px] border-ink bg-card p-8 brutal-shadow-lg sm:p-10">
         {sections.map((section) => (
-          <section key={section.title}>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-              {section.title}
+          <section
+            key={section.title}
+            className="border-t-[3px] border-ink pt-5 first:border-t-0 first:pt-0"
+          >
+            <h2 className="text-xl font-black tracking-tight text-ink sm:text-2xl">
+              ★ {section.title}
             </h2>
-            <div className="mt-4 text-lg leading-relaxed text-slate-700 dark:text-slate-200">
+            <div className="mt-3 text-base font-medium leading-relaxed text-ink sm:text-lg">
               {section.body}
             </div>
           </section>

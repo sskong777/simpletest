@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-6 py-20 text-center">
-      <div className="rounded-3xl border border-white/60 bg-white/80 p-10 shadow-sm backdrop-blur-sm sm:p-12 dark:border-slate-800 dark:bg-slate-900/60">
+      <div className="w-full border-[3px] border-ink bg-card p-10 brutal-shadow-lg sm:p-12">
         <span aria-hidden className="text-6xl">
           🧭
         </span>
-        <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+        <h1 className="mt-6 text-4xl font-black tracking-tight text-ink sm:text-5xl">
           길을 잃었어요
         </h1>
-        <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
+        <p className="mt-3 text-base font-bold leading-relaxed text-ink-muted sm:text-lg">
           주소가 잘못됐거나 삭제된 페이지일 수 있어요.
           <br className="hidden sm:inline" />
           홈으로 돌아가서 테스트를 시작해보세요.
@@ -24,13 +24,13 @@ export default function NotFound() {
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link
             href="/"
-            className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 sm:w-auto dark:from-violet-500 dark:to-fuchsia-500 dark:focus-visible:ring-offset-slate-950"
+            className="inline-flex w-full items-center justify-center gap-1.5 border-[3px] border-ink bg-brand-primary px-6 py-3 text-sm font-black uppercase tracking-wider text-white brutal-shadow-lg transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-xl focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-xl sm:w-auto"
           >
-            홈으로 가기 <span aria-hidden>→</span>
+            홈으로 가기 →
           </Link>
           <Link
             href="/about"
-            className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 sm:w-auto dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-violet-500 dark:focus-visible:ring-offset-slate-950"
+            className="inline-flex w-full items-center justify-center border-[3px] border-ink bg-card px-6 py-3 text-sm font-black uppercase tracking-wider text-ink brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-lg sm:w-auto"
           >
             소개 보기
           </Link>

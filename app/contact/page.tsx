@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+const TINTS = ["#FFE66D", "#4ECDC4", "#FF6B6B"];
+
 const sections = [
   {
     emoji: "📧",
@@ -14,7 +16,7 @@ const sections = [
     body: (
       <a
         href="mailto:contact@threethousand.site"
-        className="font-semibold text-violet-700 underline-offset-2 hover:underline dark:text-violet-300"
+        className="font-black text-ink underline decoration-[3px] underline-offset-4 hover:bg-brand-accent"
       >
         contact@threethousand.site
       </a>
@@ -24,7 +26,7 @@ const sections = [
     emoji: "💡",
     title: "제안 및 피드백",
     body: (
-      <p>
+      <p className="text-sm font-medium leading-relaxed text-ink-muted">
         새로운 테스트 아이디어나 개선사항을 알려주시면 적극 반영하겠습니다.
       </p>
     ),
@@ -33,7 +35,7 @@ const sections = [
     emoji: "🐛",
     title: "버그 제보",
     body: (
-      <p>
+      <p className="text-sm font-medium leading-relaxed text-ink-muted">
         불편한 점이나 오류를 발견하셨다면 알려주세요. 빠르게 수정하겠습니다.
       </p>
     ),
@@ -44,10 +46,13 @@ export default function ContactPage() {
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-12 sm:py-20">
       <header className="text-center">
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+        <span className="inline-flex items-center gap-2 border-[3px] border-ink bg-brand-accent px-4 py-1.5 text-xs font-black uppercase tracking-widest text-ink brutal-shadow">
+          ★ CONTACT
+        </span>
+        <h1 className="mt-6 text-4xl font-black tracking-tight text-ink sm:text-5xl">
           Contact Us
         </h1>
-        <p className="mt-3 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+        <p className="mt-4 text-base font-bold leading-relaxed text-ink sm:text-lg">
           문의사항이나 제안사항이 있으신가요?
           <br className="hidden sm:inline" />
           언제든 연락주세요!
@@ -55,20 +60,24 @@ export default function ContactPage() {
       </header>
 
       <div className="mt-10 space-y-4">
-        {sections.map((s) => (
+        {sections.map((s, i) => (
           <section
             key={s.title}
-            className="rounded-2xl border border-white/60 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900/60"
+            className="border-[3px] border-ink bg-card p-6 brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg"
           >
-            <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-slate-50">
-              <span aria-hidden className="text-2xl">
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden
+                className="inline-flex h-12 w-12 items-center justify-center border-[3px] border-ink text-2xl shadow-[3px_3px_0_0_var(--ink)]"
+                style={{ backgroundColor: TINTS[i % TINTS.length] }}
+              >
                 {s.emoji}
               </span>
-              {s.title}
-            </h2>
-            <div className="mt-2 text-base leading-relaxed text-slate-700 dark:text-slate-200">
-              {s.body}
+              <h2 className="text-lg font-black tracking-tight text-ink">
+                {s.title}
+              </h2>
             </div>
+            <div className="mt-3 text-base text-ink">{s.body}</div>
           </section>
         ))}
       </div>

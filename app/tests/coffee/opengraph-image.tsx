@@ -1,11 +1,13 @@
 import { ImageResponse } from "next/og";
-import { loadOgFonts, ogSize } from "@/lib/og";
+import { COLOR_INK, loadOgFonts, ogSize } from "@/lib/og";
 import { coffeeTest } from "@/lib/tests/coffee";
 
 export const runtime = "edge";
 export const alt = coffeeTest.title;
 export const size = { width: ogSize.width, height: ogSize.height };
 export const contentType = "image/png";
+
+const BG = "#FF6B6B";
 
 export default async function Image() {
   const fonts = await loadOgFonts();
@@ -19,8 +21,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "linear-gradient(135deg, #fcd34d 0%, #fed7aa 50%, #fecdd3 100%)",
+          background: BG,
           fontFamily: "Pretendard",
           padding: 60,
         }}
@@ -29,53 +30,59 @@ export default async function Image() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 12,
-            padding: "10px 22px",
-            background: "rgba(255,255,255,0.8)",
-            borderRadius: 999,
-            fontSize: 24,
+            gap: 10,
+            border: `3px solid ${COLOR_INK}`,
+            background: "#fff",
+            padding: "8px 20px",
+            boxShadow: `5px 5px 0 0 ${COLOR_INK}`,
+            fontSize: 20,
             fontWeight: 700,
-            color: "#9a3412",
+            color: COLOR_INK,
+            letterSpacing: 2,
           }}
         >
-          <span>✨</span>
-          <span>Three Thousand</span>
+          ★ THREE THOUSAND
         </div>
+
         <div
           style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             marginTop: 36,
             width: 200,
             height: 200,
             background: "#fff",
-            borderRadius: 40,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            border: `4px solid ${COLOR_INK}`,
+            boxShadow: `10px 10px 0 0 ${COLOR_INK}`,
             fontSize: 120,
-            boxShadow: "0 10px 40px rgba(0,0,0,0.12)",
           }}
         >
           {coffeeTest.emoji}
         </div>
+
         <div
           style={{
-            marginTop: 40,
-            fontSize: 88,
+            display: "flex",
+            marginTop: 44,
+            fontSize: 86,
             fontWeight: 700,
-            color: "#0f172a",
+            color: COLOR_INK,
             textAlign: "center",
-            lineHeight: 1.1,
+            lineHeight: 1,
           }}
         >
           {coffeeTest.title}
         </div>
         <div
           style={{
-            marginTop: 24,
-            fontSize: 30,
+            display: "flex",
+            marginTop: 20,
+            fontSize: 26,
             fontWeight: 400,
-            color: "rgba(15, 23, 42, 0.7)",
+            color: COLOR_INK,
             textAlign: "center",
+            letterSpacing: 0.5,
           }}
         >
           {coffeeTest.description}

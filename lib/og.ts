@@ -61,3 +61,38 @@ export const brandGradient: [string, string, string] = [
   "#ddd6fe",
   "#bae6fd",
 ];
+
+// Brutalist: 단일 액센트 색 매핑 (그라데이션 대신)
+export const resultTints: Record<string, string> = {
+  // developer
+  architect: "#4ECDC4",
+  builder: "#FFE66D",
+  researcher: "#4ECDC4",
+  collaborator: "#FF6B6B",
+  // coffee
+  americano: "#FFE66D",
+  latte: "#FF6B6B",
+  espresso: "#FF6B6B",
+  coldbrew: "#4ECDC4",
+  // travel
+  planner: "#4ECDC4",
+  spontaneous: "#FF6B6B",
+  relaxer: "#FFE66D",
+  foodie: "#FF6B6B",
+  // music
+  balladeer: "#FF6B6B",
+  dancer: "#FFE66D",
+  digger: "#4ECDC4",
+  mellow: "#FFE66D",
+  // food
+  gourmet: "#FF6B6B",
+  comfort: "#FFE66D",
+  adventurer: "#FF6B6B",
+  healthy: "#4ECDC4",
+};
+
+export const COLOR_PAPER = "#F7F7F7";
+export const COLOR_INK = "#0a0a0a";
+export const COLOR_PRIMARY = "#FF6B6B";
+export const COLOR_SECONDARY = "#4ECDC4";
+export const COLOR_ACCENT = "#FFE66D";

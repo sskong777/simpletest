@@ -12,10 +12,10 @@
 }
 
 .dark {
-  --paper: #0e0e10;
+  --paper: #232228;
   --ink: #fafafa;
-  --ink-muted: #a3a3a3;
-  --card: #1e1e22;
+  --ink-muted: #b3b1bb;
+  --card: #2f2e36;
   --background: var(--paper);
   --foreground: var(--ink);
 }

@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { loadOgFonts, ogSize, resultGradients } from "@/lib/og";
+import { COLOR_INK, loadOgFonts, ogSize, resultTints } from "@/lib/og";
 import { coffeeTest } from "@/lib/tests/coffee";
 
 export const size = { width: ogSize.width, height: ogSize.height };
@@ -17,7 +17,7 @@ export default async function Image({
     return new Response("Not found", { status: 404 });
   }
   const fonts = await loadOgFonts();
-  const [c1, c2, c3] = resultGradients[type] ?? ["#fde68a", "#fed7aa", "#fecdd3"];
+  const bg = resultTints[type] ?? "#FFE66D";
 
   return new ImageResponse(
     (
@@ -29,7 +29,7 @@ export default async function Image({
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: `linear-gradient(135deg, ${c1} 0%, ${c2} 50%, ${c3} 100%)`,
+          background: bg,
           fontFamily: "Pretendard",
           padding: 60,
         }}
@@ -38,53 +38,59 @@ export default async function Image({
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 10,
-            padding: "8px 20px",
-            background: "rgba(255,255,255,0.8)",
-            borderRadius: 999,
-            fontSize: 22,
+            gap: 8,
+            border: `3px solid ${COLOR_INK}`,
+            background: "#fff",
+            padding: "8px 18px",
+            boxShadow: `4px 4px 0 0 ${COLOR_INK}`,
+            fontSize: 20,
             fontWeight: 700,
-            color: "#1f2937",
+            color: COLOR_INK,
           }}
         >
           <span>{coffeeTest.emoji}</span>
           <span>{coffeeTest.title}</span>
         </div>
+
         <div
           style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             marginTop: 32,
             width: 220,
             height: 220,
             background: "#fff",
-            borderRadius: 44,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            border: `4px solid ${COLOR_INK}`,
+            boxShadow: `10px 10px 0 0 ${COLOR_INK}`,
             fontSize: 140,
-            boxShadow: "0 10px 40px rgba(0,0,0,0.12)",
           }}
         >
           {result.emoji}
         </div>
+
         <div
           style={{
-            marginTop: 36,
+            display: "flex",
+            marginTop: 40,
             fontSize: 84,
             fontWeight: 700,
-            color: "#0f172a",
+            color: COLOR_INK,
             textAlign: "center",
-            lineHeight: 1.05,
+            lineHeight: 1,
           }}
         >
           {result.title}
         </div>
         <div
           style={{
+            display: "flex",
             marginTop: 18,
-            fontSize: 30,
+            fontSize: 26,
             fontWeight: 400,
-            color: "rgba(15, 23, 42, 0.75)",
+            color: COLOR_INK,
             textAlign: "center",
+            letterSpacing: 0.5,
           }}
         >
           {result.tagline}

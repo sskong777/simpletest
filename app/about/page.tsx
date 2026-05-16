@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+const FEATURE_TINTS = ["#FF6B6B", "#4ECDC4", "#FFE66D", "#FFB870"];
+
 const features = [
   {
     emoji: "🎯",
@@ -53,19 +55,23 @@ const faqs = [
 export default function AboutPage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-20">
-      <section className="rounded-3xl border border-white/60 bg-white/80 p-10 text-center shadow-sm backdrop-blur-sm sm:p-12 dark:border-slate-800 dark:bg-slate-900/60">
-        <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 text-xs font-semibold text-violet-700 shadow-sm dark:border-violet-900/60 dark:bg-slate-900/60 dark:text-violet-300">
-          <span aria-hidden>✨</span>
-          About
+      {/* Hero card */}
+      <section className="border-[3px] border-ink bg-card p-10 text-center brutal-shadow-lg sm:p-12">
+        <span className="inline-flex items-center gap-2 border-[3px] border-ink bg-brand-accent px-4 py-1.5 text-xs font-black uppercase tracking-widest text-ink brutal-shadow">
+          ★ ABOUT
         </span>
-        <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50">
+        <h1 className="mt-6 text-4xl font-black leading-[0.95] tracking-tight text-ink sm:text-5xl">
           About{" "}
-          <span className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-rose-400">
-            Three Thousand
+          <span className="relative inline-block">
+            <span
+              aria-hidden
+              className="absolute -inset-x-2 -inset-y-1 -z-10 -rotate-1 bg-brand-primary"
+            />
+            <span className="relative text-white">Three Thousand</span>
           </span>
         </h1>
 
-        <div className="mt-8 space-y-5 text-lg leading-relaxed text-slate-700 dark:text-slate-200">
+        <div className="mt-8 space-y-4 text-base font-medium leading-relaxed text-ink sm:text-lg">
           <p>
             Three Thousand는 당신의 성향과 취향을 발견하는 재미있는 심리테스트
             플랫폼입니다.
@@ -82,29 +88,33 @@ export default function AboutPage() {
 
         <Link
           href="/"
-          className="mt-10 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 dark:from-violet-500 dark:to-fuchsia-500 dark:focus-visible:ring-offset-slate-950"
+          className="mt-10 inline-flex items-center gap-1.5 border-[3px] border-ink bg-brand-primary px-6 py-3 text-sm font-black uppercase tracking-wider text-white brutal-shadow-lg transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-xl focus:outline-none focus-visible:-translate-y-0.5 focus-visible:translate-x-[1px] focus-visible:brutal-shadow-xl"
         >
-          테스트 시작하기 <span aria-hidden>→</span>
+          테스트 시작하기 →
         </Link>
       </section>
 
-      <section className="mt-10">
-        <h2 className="text-center text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-          Three Thousand의 특징
+      {/* Features */}
+      <section className="mt-12">
+        <h2 className="text-center text-[10px] font-black uppercase tracking-widest text-ink-muted">
+          ★ Three Thousand의 특징
         </h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {features.map((f) => (
+        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {features.map((f, i) => (
             <div
               key={f.title}
-              className="rounded-2xl border border-white/60 bg-white/70 p-6 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/50"
+              className="border-[3px] border-ink bg-card p-6 brutal-shadow transition-all hover:-translate-y-0.5 hover:translate-x-[1px] hover:brutal-shadow-lg"
             >
-              <span aria-hidden className="text-3xl">
+              <div
+                className="flex h-14 w-14 items-center justify-center border-[3px] border-ink text-2xl shadow-[3px_3px_0_0_var(--ink)]"
+                style={{ backgroundColor: FEATURE_TINTS[i % FEATURE_TINTS.length] }}
+              >
                 {f.emoji}
-              </span>
-              <h3 className="mt-3 text-lg font-bold text-slate-900 dark:text-slate-50">
+              </div>
+              <h3 className="mt-4 text-lg font-black tracking-tight text-ink">
                 {f.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm font-medium leading-relaxed text-ink-muted">
                 {f.body}
               </p>
             </div>
@@ -112,17 +122,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-3xl border border-white/60 bg-white/70 p-8 shadow-sm backdrop-blur-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/50">
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-          자주 묻는 질문
+      {/* FAQ */}
+      <section className="mt-12 border-[3px] border-ink bg-card p-8 brutal-shadow-lg sm:p-10">
+        <h2 className="inline-flex items-center gap-2 border-[3px] border-ink bg-brand-accent px-4 py-1.5 text-xs font-black uppercase tracking-widest text-ink">
+          ★ 자주 묻는 질문
         </h2>
-        <dl className="mt-6 space-y-5">
+        <dl className="mt-6 space-y-6">
           {faqs.map((item) => (
-            <div key={item.q}>
-              <dt className="text-base font-bold text-slate-900 dark:text-slate-50">
+            <div key={item.q} className="border-t-[3px] border-ink pt-4 first:border-t-0 first:pt-0">
+              <dt className="text-base font-black tracking-tight text-ink">
                 Q. {item.q}
               </dt>
-              <dd className="mt-1.5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+              <dd className="mt-2 text-sm font-medium leading-relaxed text-ink-muted">
                 {item.a}
               </dd>
             </div>
@@ -130,14 +141,12 @@ export default function AboutPage() {
         </dl>
       </section>
 
-      <section className="mt-10 rounded-2xl bg-gradient-to-br from-violet-50 to-rose-50 p-6 text-center text-sm leading-relaxed text-slate-700 dark:from-violet-950/40 dark:to-rose-950/40 dark:text-slate-200">
+      <section className="mt-10 border-[3px] border-ink bg-brand-secondary p-6 text-center text-sm font-bold leading-relaxed text-ink">
         <p>
-          더 좋은 테스트, 더 풍성한 콘텐츠를 위해 의견을 듣고 싶어요.
-          <br className="hidden sm:inline" />
           제안·피드백·버그 제보는 언제든{" "}
           <Link
             href="/contact"
-            className="font-semibold text-violet-700 underline-offset-2 hover:underline dark:text-violet-300"
+            className="underline decoration-[3px] underline-offset-4 hover:bg-brand-accent"
           >
             Contact
           </Link>{" "}
