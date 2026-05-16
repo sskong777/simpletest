@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "개인정보처리방침",
   description:
     "Three Thousand이 수집·이용하는 개인정보의 항목과 처리 방식, 사용자의 권리에 대한 안내입니다.",
-  alternates: { canonical: "/privacy" },
+  alternates: { canonical: "/test/privacy" },
 };
 
 const sections: { title: string; body: React.ReactNode }[] = [

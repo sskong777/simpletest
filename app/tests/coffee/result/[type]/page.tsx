@@ -24,7 +24,7 @@ export async function generateMetadata({
   const result = coffeeTest.results[type];
   if (!result) return { title: "결과를 찾을 수 없어요" };
   const title = `${result.title} · ${coffeeTest.title}`;
-  const url = `/tests/${coffeeTest.id}/result/${type}`;
+  const url = `/test/tests/${coffeeTest.id}/result/${type}`;
   return {
     title,
     description: result.tagline,
@@ -51,7 +51,7 @@ export default async function CoffeeResultPage({
   const { type } = await params;
   const result = coffeeTest.results[type];
   if (!result) notFound();
-  const testUrl = `${siteUrl}/tests/${coffeeTest.id}`;
+  const testUrl = `${siteUrl}/test/tests/${coffeeTest.id}`;
   const resultUrl = `${testUrl}/result/${type}`;
   return (
     <>

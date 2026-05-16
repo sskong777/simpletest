@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, testJsonLd } from "@/lib/jsonld";
 import { siteName, siteUrl } from "@/lib/site";
 import { foodTest } from "@/lib/tests/food";
 
-const url = `/tests/${foodTest.id}`;
+const url = `/test/tests/${foodTest.id}`;
 
 export const metadata: Metadata = {
   title: foodTest.title,

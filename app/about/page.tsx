@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Three Thousand은 당신의 성향과 취향을 발견하는 재미있는 심리테스트 플랫폼입니다. 무료로 즐길 수 있는 다양한 테스트와 결과 공유 기능을 제공합니다.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: "/test/about" },
 };
 
 const FEATURE_TINTS = ["#FF6B6B", "#4ECDC4", "#FFE66D", "#FFB870"];

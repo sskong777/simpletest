@@ -24,7 +24,7 @@ export async function generateMetadata({
   const result = travelTest.results[type];
   if (!result) return { title: "결과를 찾을 수 없어요" };
   const title = `${result.title} · ${travelTest.title}`;
-  const url = `/tests/${travelTest.id}/result/${type}`;
+  const url = `/test/tests/${travelTest.id}/result/${type}`;
   return {
     title,
     description: result.tagline,
@@ -51,7 +51,7 @@ export default async function TravelResultPage({
   const { type } = await params;
   const result = travelTest.results[type];
   if (!result) notFound();
-  const testUrl = `${siteUrl}/tests/${travelTest.id}`;
+  const testUrl = `${siteUrl}/test/tests/${travelTest.id}`;
   const resultUrl = `${testUrl}/result/${type}`;
   return (
     <>

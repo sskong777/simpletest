@@ -24,7 +24,7 @@ export async function generateMetadata({
   const result = musicTest.results[type];
   if (!result) return { title: "결과를 찾을 수 없어요" };
   const title = `${result.title} · ${musicTest.title}`;
-  const url = `/tests/${musicTest.id}/result/${type}`;
+  const url = `/test/tests/${musicTest.id}/result/${type}`;
   return {
     title,
     description: result.tagline,
@@ -51,7 +51,7 @@ export default async function MusicResultPage({
   const { type } = await params;
   const result = musicTest.results[type];
   if (!result) notFound();
-  const testUrl = `${siteUrl}/tests/${musicTest.id}`;
+  const testUrl = `${siteUrl}/test/tests/${musicTest.id}`;
   const resultUrl = `${testUrl}/result/${type}`;
   return (
     <>

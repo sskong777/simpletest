@@ -24,7 +24,7 @@ export async function generateMetadata({
   const result = developerTest.results[type];
   if (!result) return { title: "결과를 찾을 수 없어요" };
   const title = `${result.title} · ${developerTest.title}`;
-  const url = `/tests/${developerTest.id}/result/${type}`;
+  const url = `/test/tests/${developerTest.id}/result/${type}`;
   return {
     title,
     description: result.tagline,
@@ -51,7 +51,7 @@ export default async function DeveloperResultPage({
   const { type } = await params;
   const result = developerTest.results[type];
   if (!result) notFound();
-  const testUrl = `${siteUrl}/tests/${developerTest.id}`;
+  const testUrl = `${siteUrl}/test/tests/${developerTest.id}`;
   const resultUrl = `${testUrl}/result/${type}`;
   return (
     <>

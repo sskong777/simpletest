@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Three Thousand에 문의·제안·버그 제보를 보내실 수 있는 방법을 안내합니다.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/test/contact" },
 };
 
 const TINTS = ["#FFE66D", "#4ECDC4", "#FF6B6B"];

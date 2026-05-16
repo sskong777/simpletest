@@ -5,7 +5,7 @@ import { travelTest } from "@/lib/tests/travel";
 import { musicTest } from "@/lib/tests/music";
 import { foodTest } from "@/lib/tests/food";
 
-const SITE = "https://www.threethousand.site";
+const SITE = "https://www.threethousand.site/test";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const tests = [developerTest, coffeeTest, travelTest, musicTest, foodTest];

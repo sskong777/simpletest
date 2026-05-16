@@ -24,7 +24,7 @@ export async function generateMetadata({
   const result = foodTest.results[type];
   if (!result) return { title: "결과를 찾을 수 없어요" };
   const title = `${result.title} · ${foodTest.title}`;
-  const url = `/tests/${foodTest.id}/result/${type}`;
+  const url = `/test/tests/${foodTest.id}/result/${type}`;
   return {
     title,
     description: result.tagline,
@@ -51,7 +51,7 @@ export default async function FoodResultPage({
   const { type } = await params;
   const result = foodTest.results[type];
   if (!result) notFound();
-  const testUrl = `${siteUrl}/tests/${foodTest.id}`;
+  const testUrl = `${siteUrl}/test/tests/${foodTest.id}`;
   const resultUrl = `${testUrl}/result/${type}`;
   return (
     <>

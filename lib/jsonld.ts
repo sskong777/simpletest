@@ -22,7 +22,7 @@ export function organizationJsonLd() {
 }
 
 export function testJsonLd(test: Test) {
-  const url = `${siteUrl}/tests/${test.id}`;
+  const url = `${siteUrl}/test/tests/${test.id}`;
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -42,7 +42,7 @@ export function testJsonLd(test: Test) {
 }
 
 export function resultJsonLd(test: Test, result: Result) {
-  const url = `${siteUrl}/tests/${test.id}/result/${result.type}`;
+  const url = `${siteUrl}/test/tests/${test.id}/result/${result.type}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
