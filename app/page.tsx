@@ -1,6 +1,8 @@
+import CoupangRecommend from "@/components/CoupangRecommend";
 import JsonLd from "@/components/JsonLd";
 import TestCard, { type ResultPreview } from "@/components/TestCard";
 import ThemeToggle from "@/components/ThemeToggle";
+import { getFeaturedRecommendations } from "@/lib/affiliates";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { developerTest } from "@/lib/tests/developer";
 import { coffeeTest } from "@/lib/tests/coffee";
@@ -131,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Cards */}
-      <section className="px-6 pb-24">
+      <section className="px-6 pb-12">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {tests.map((test, i) => (
             <TestCard
@@ -144,6 +146,13 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <CoupangRecommend
+        items={getFeaturedRecommendations(4)}
+        title="지금 추천하는 아이템"
+      />
+
+      <div className="pb-24" />
     </main>
   );
 }

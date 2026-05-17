@@ -118,19 +118,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "하리오 V60 드리퍼 02 세라믹",
       description: "단정한 드립 한 잔의 시작",
-      url: "", // 검색: "하리오 V60 02 세라믹"
+      url: "https://link.coupang.com/a/dORbLNeRGK", // 검색: "하리오 V60 02 세라믹"
       emoji: "🫖",
     },
     {
       title: "스타벅스 하우스 블렌드 원두",
       description: "담백한 데일리 원두",
-      url: "", // 검색: "스타벅스 하우스 블렌드 원두"
+      url: "https://link.coupang.com/a/dORcLooISa", // 검색: "스타벅스 하우스 블렌드 원두"
       emoji: "☕",
     },
     {
       title: "코렐 클래식 머그컵 세트",
       description: "꾸미지 않은 매일의 잔",
-      url: "", // 검색: "코렐 머그컵 세트"
+      url: "https://link.coupang.com/a/dORd7AK4Ki", // 검색: "코렐 머그컵 세트"
       emoji: "🍵",
     },
   ],
@@ -139,19 +139,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "네스프레소 에어로치노 우유 거품기",
       description: "집에서 만드는 라떼 폼",
-      url: "", // 검색: "네스프레소 에어로치노"
+      url: "https://link.coupang.com/a/dORfjg4Ez6", // 검색: "네스프레소 에어로치노"
       emoji: "🥛",
     },
     {
-      title: "보덤 더블월 라떼 글래스",
+      title: "오슬로 더블월 유리컵",
       description: "온도가 오래 가는 잔",
-      url: "", // 검색: "보덤 더블월 라떼 잔"
+      url: "https://link.coupang.com/a/dORhQHmxG0", // 검색: "보덤 더블월 라떼 잔"
       emoji: "🫗",
     },
     {
       title: "라바짜 크레마 에 아로마 원두",
       description: "달콤한 우유와 잘 어울리는 원두",
-      url: "", // 검색: "라바짜 크레마 에 아로마 원두"
+      url: "https://link.coupang.com/a/dORkoRUnrU", // 검색: "라바짜 크레마 에 아로마 원두"
       emoji: "☕",
     },
   ],
@@ -160,19 +160,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "드롱기 EC685 에스프레소 머신",
       description: "진한 한 잔, 집에서 매일",
-      url: "", // 검색: "드롱기 EC685"
+      url: "https://link.coupang.com/a/dORmADygcC", // 검색: "드롱기 EC685"
       emoji: "⚙️",
     },
     {
       title: "일리 클래시코 다크 로스트 원두",
       description: "묵직한 에스프레소용",
-      url: "", // 검색: "일리 클래시코 다크 로스트"
+      url: "https://link.coupang.com/a/dORnKnAJe8", // 검색: "일리 클래시코 다크 로스트"
       emoji: "☕",
     },
     {
-      title: "데미타스 잔 세트 6P",
+      title: "잇어스 더블 스트레이트잔 70ml, 4개",
       description: "에스프레소 한 잔의 예의",
-      url: "", // 검색: "데미타스 잔 세트"
+      url: "https://link.coupang.com/a/dORrrF0u0O", // 검색: "데미타스 잔 세트"
       emoji: "🥃",
     },
   ],
@@ -181,19 +181,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "하리오 콜드브루 추출기 1L",
       description: "8시간 천천히 우려낸 한 잔",
-      url: "", // 검색: "하리오 콜드브루 추출기"
+      url: "https://link.coupang.com/a/dORs4lDg2m", // 검색: "하리오 콜드브루 추출기"
       emoji: "🧊",
     },
     {
       title: "스탠리 진공 텀블러 16oz",
       description: "온종일 시원한 콜드브루",
-      url: "", // 검색: "스탠리 텀블러 16oz"
+      url: "https://link.coupang.com/a/dORumtVPpc", // 검색: "스탠리 텀블러 16oz"
       emoji: "🥤",
     },
     {
       title: "맥심 콜드브루 마스터 원액",
       description: "바로 부어 만드는 콜드브루",
-      url: "", // 검색: "맥심 콜드브루 마스터 원액"
+      url: "https://link.coupang.com/a/dORvo7l2dw", // 검색: "맥심 콜드브루 마스터 원액"
       emoji: "☕",
     },
   ],
@@ -204,19 +204,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "미도리 트래블러스 노트북",
       description: "여행 동선·메모를 한 권에",
-      url: "", // 검색: "미도리 트래블러스 노트북"
+      url: "https://link.coupang.com/a/dORxJt5Wmq", // 검색: "미도리 트래블러스 노트북"
       emoji: "📓",
     },
     {
       title: "패킹큐브 정리 파우치 7종 세트",
       description: "캐리어 안 완벽 동선",
-      url: "", // 검색: "여행 패킹큐브 7종 세트"
+      url: "https://link.coupang.com/a/dORzAmiIge", // 검색: "여행 패킹큐브 7종 세트"
       emoji: "🧳",
     },
     {
       title: "RFID 차단 여권 케이스",
       description: "보안 + 정돈 두 토끼",
-      url: "", // 검색: "RFID 여권 케이스"
+      url: "https://link.coupang.com/a/dORCxmsPw4", // 검색: "RFID 여권 케이스"
       emoji: "🛂",
     },
   ],
@@ -225,19 +225,19 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "후지필름 X-S20 미러리스 카메라",
       description: "즉흥 한 컷도 인생샷으로",
-      url: "", // 검색: "후지필름 X-S20"
+      url: "https://link.coupang.com/a/dOREMDcnx6", // 검색: "후지필름 X-S20"
       emoji: "📷",
     },
     {
-      title: "패타고니아 블랙홀 25L 백팩",
-      description: "어디든 어울리는 한 가방",
-      url: "", // 검색: "패타고니아 블랙홀 25L"
+      title: "인텍스 에어매트 캠핑매트",
+      description: "간편하게 충전하는 에어매트",
+      url: "https://link.coupang.com/a/dORF7j9StU", // 검색: "패타고니아 블랙홀 25L"
       emoji: "🎒",
     },
     {
       title: "호카 카하 미드 트레킹화",
       description: "골목·산책 어디든",
-      url: "", // 검색: "호카 카하 미드 트레킹화"
+      url: "https://link.coupang.com/a/dORKXjiSFE", // 검색: "호카 카하 미드 트레킹화"
       emoji: "🥾",
     },
   ],
@@ -252,13 +252,13 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "러쉬 입욕제 폭탄 세트",
       description: "호캉스의 마무리",
-      url: "", // 검색: "러쉬 입욕제 세트"
+      url: "https://link.coupang.com/a/dORQHJfTZk", // 검색: "러쉬 입욕제 세트"
       emoji: "🛁",
     },
     {
       title: "어그 페어 슬리퍼",
       description: "공항·호텔 어디든 푹신",
-      url: "", // 검색: "어그 페어 슬리퍼"
+      url: "https://link.coupang.com/a/dORThFVg4a", // 검색: "어그 페어 슬리퍼"
       emoji: "👡",
     },
   ],
@@ -267,7 +267,7 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "미슐랭 가이드 도쿄",
       description: "도시를 음식으로 기억하기",
-      url: "", // 검색: "미슐랭 가이드 도쿄"
+      url: "https://link.coupang.com/a/dORUkXF03g", // 검색: "미슐랭 가이드 도쿄"
       emoji: "📕",
     },
     {
@@ -279,7 +279,7 @@ export const affiliateRecommendations: Record<string, AffiliateProduct[]> = {
     {
       title: "스테인리스 3단 도시락통",
       description: "현지 음식 사고 싶을 때",
-      url: "", // 검색: "스테인리스 3단 도시락통"
+      url: "https://link.coupang.com/a/dORVqItRNA", // 검색: "스테인리스 3단 도시락통"
       emoji: "🍱",
     },
   ],
@@ -462,4 +462,22 @@ export function getRecommendations(
   resultType: string,
 ): AffiliateProduct[] {
   return affiliateRecommendations[`${testId}:${resultType}`] ?? [];
+}
+
+/**
+ * 메인 페이지 등 결과 페이지 밖에서 사용할 "추천" 묶음 자동 선정.
+ * 각 카테고리에서 유효 URL이 있는 첫 아이템을 1개씩 추출 → 다양성 확보.
+ */
+export function getFeaturedRecommendations(limit = 6): AffiliateProduct[] {
+  const featured: AffiliateProduct[] = [];
+  for (const items of Object.values(affiliateRecommendations)) {
+    for (const item of items) {
+      if (item.url.startsWith("https://link.coupang.com/")) {
+        featured.push(item);
+        break;
+      }
+    }
+    if (featured.length >= limit) break;
+  }
+  return featured;
 }
